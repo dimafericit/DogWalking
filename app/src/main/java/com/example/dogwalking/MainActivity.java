@@ -1,6 +1,7 @@
 package com.example.dogwalking;
 
 import android.app.DatePickerDialog;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -9,8 +10,8 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.dogwalking.profile.ProfileDbHelper;
 import com.example.dogwalking.ui.home.DatePickerFragment;
-import com.example.dogwalking.ui.home.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,10 +29,15 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     private ActivityMainBinding binding;
+    private ProfileDbHelper dbHelper;
+    private SQLiteDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dbHelper = new ProfileDbHelper(this);
+        mDatabase = dbHelper.getWritableDatabase();
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -42,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinnerParameters.setAdapter(adapter);
 
+        //DatePicker PopUp
         Button button = (Button) findViewById(R.id.pickDateButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             }
         });
 
+        //Navigation Bar
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

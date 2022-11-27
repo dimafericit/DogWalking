@@ -9,30 +9,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 
-import com.example.dogwalking.DbHelper;
+import com.example.dogwalking.profile.ProfileDbHelper;
 import com.example.dogwalking.MainActivity;
 import com.example.dogwalking.R;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 
 public class Login extends AppCompatActivity {
 
     EditText et_username, et_password;
     Button btn_login, btn_confirmation;
-    private DbHelper dbHelper;
+    private ProfileDbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        dbHelper = new ProfileDbHelper(this);
 
         login();
     }
@@ -57,9 +51,9 @@ public class Login extends AppCompatActivity {
                 transaction.replace(R.id.container, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();*/
-            
-                Intent intent = new Intent(Login.this, User.class);
-                startActivity(intent);
+
+                /*Intent intent = new Intent(Login.this, User.class);
+                startActivity(intent);*/
                 openNewActivity();
 
             }

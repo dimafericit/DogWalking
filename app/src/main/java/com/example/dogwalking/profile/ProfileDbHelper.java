@@ -1,4 +1,4 @@
-package com.example.dogwalking;
+package com.example.dogwalking.profile;
 
 
 import android.content.ContentValues;
@@ -7,21 +7,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DbHelper extends SQLiteOpenHelper {
+public class ProfileDbHelper extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DBNAME = "DogWalking.db";
     private static final int VERSION = 1;
 
-    public DbHelper(Context context) {
+    public ProfileDbHelper(Context context) {
         super(context, DBNAME, null, VERSION);
         this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE Users(username TEXT not null primary key, password TEXT not null, " +
-                "email TEXT not null)");
+        sqLiteDatabase.execSQL("CREATE TABLE " + Profile.ProfileEntry.TABLE_NAME + "(username TEXT not null primary key, password TEXT not null,"
+                + Profile.ProfileEntry.COLUMN_EMAIL + " TEXT not null)");
     }
 
     @Override

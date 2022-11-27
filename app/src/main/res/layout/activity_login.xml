@@ -77,7 +77,6 @@
         android:layout_marginTop="30dp"
         android:text="Login"/>
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_confirmation"
         android:layout_width="match_parent"
