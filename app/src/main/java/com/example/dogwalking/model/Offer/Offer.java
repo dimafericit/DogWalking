@@ -30,6 +30,7 @@ public class Offer extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS Offers");
 
     }
+    //
 
     public boolean insertOffer(int offerId, String description, String username) {
         SQLiteDatabase db = this.getWritableDatabase();
