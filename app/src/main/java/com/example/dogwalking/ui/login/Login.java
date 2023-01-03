@@ -10,24 +10,30 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import com.example.dogwalking.profile.ProfileDbHelper;
+import com.example.dogwalking.RegisterActivity;
+import com.example.dogwalking.model.profile.ProfileDbHelper;
 import com.example.dogwalking.MainActivity;
 import com.example.dogwalking.R;
 
 
 public class Login extends AppCompatActivity {
 
-    EditText et_username, et_password;
-    Button btn_login, btn_confirmation;
+    public static EditText et_username;
+    static EditText et_password;
+    Button btn_login, btn_confirmation, btn_register;
     private ProfileDbHelper dbHelper;
+    private String username;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println();
+        System.out.println();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         dbHelper = new ProfileDbHelper(this);
 
+        register();
         login();
     }
 
@@ -35,26 +41,16 @@ public class Login extends AppCompatActivity {
            et_username = (EditText)findViewById(R.id.et_username);
            et_password = (EditText)findViewById(R.id.et_password);
            btn_login = (Button)findViewById(R.id.btn_login);
-           btn_confirmation = (Button) findViewById(R.id.confirmation_btn);
 
-           btn_login.setOnClickListener(new View.OnClickListener() {
+    btn_login.setOnClickListener(new View.OnClickListener() {
 
     @Override
     public void onClick(View v) {
-        if(et_username.getText().toString().equals("admin") && et_password.getText().toString().equals("admin")){
-            /*if (dbHelper.checkLogin(et_username.getText().toString(), et_password.getText().toString())){*/
+        username = et_username.getText().toString();
+        password = et_password.getText().toString();
+        if (dbHelper.checkLogin(username, password)){
                 Toast.makeText(Login.this, "Username and Password is correct", Toast.LENGTH_SHORT).show();
-
-
-                /*Fragment fragment = new Confirmation();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.container, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();*/
-
-                /*Intent intent = new Intent(Login.this, User.class);
-                startActivity(intent);*/
-                openNewActivity();
+                openMainActivity();
 
             }
             else{
@@ -62,6 +58,26 @@ public class Login extends AppCompatActivity {
                     }
                 }
             });
+
+    }
+
+    public void register(){
+        btn_register = (Button) findViewById(R.id.btn_register);
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRegisterActivity();
+            }
+
+        });
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     /*this.btn_confirmation.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +87,16 @@ public class Login extends AppCompatActivity {
         }
     });*/
 
-    public void openNewActivity(){
+    public void openMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void openRegisterActivity(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+
     
 }

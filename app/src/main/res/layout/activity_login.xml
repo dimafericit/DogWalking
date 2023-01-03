@@ -1,87 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.dogwalking.ui.login.Login">
 
 
-    <TextView
-        android:id="@+id/tv_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="13dp"
-        android:text="Login"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="30sp"/>
-
-
-
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_login"
-        android:layout_alignStart="@+id/tv_login"
-        android:layout_below="@+id/tv_login"
-        android:layout_marginTop="80dp"
-        android:fontFamily="monospace"
-        android:text="Username"
-        android:textSize="25sp" />
-
     <EditText
         android:id="@+id/et_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_username"
+        android:layout_marginBottom="16dp"
         android:ems="17"
-        android:layout_alignLeft="@+id/tv_username" />
-
-
-
-    <TextView
-        android:id="@+id/tv_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_username"
-        android:layout_alignStart="@+id/et_username"
-        android:layout_below="@+id/et_username"
-        android:layout_marginTop="33dp"
-        android:fontFamily="monospace"
-        android:text="Password"
-        android:textSize="25sp" />
+        android:hint="username"
+        app:layout_constraintBottom_toTopOf="@+id/et_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
+        android:layout_marginBottom="16dp"
         android:ems="17"
-        android:layout_below="@+id/tv_password"
-        android:layout_alignLeft="@+id/tv_password" />
+        android:inputType="textPassword"
 
+        android:hint="password"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_below="@id/et_password"
-        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="216dp"
         android:ems="12"
-        android:layout_marginTop="30dp"
-        android:text="Login"/>
+        android:text="Login"
+        app:layout_constraintBottom_toTopOf="@+id/btn_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_confirmation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.dogwalking.ui.login.Confirmation" />
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="24dp"
+        android:ems="12"
+        android:text="not logged in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="243dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dogicon" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
