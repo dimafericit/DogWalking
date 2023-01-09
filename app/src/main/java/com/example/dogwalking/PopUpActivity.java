@@ -1,6 +1,9 @@
 package com.example.dogwalking;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.dogwalking.databinding.ActivityMainBinding;
 import com.example.dogwalking.model.profile.ProfileDbHelper;
+import com.example.dogwalking.model.profile.User;
 import com.example.dogwalking.ui.login.Login;
 
 public class PopUpActivity extends AppCompatActivity {
@@ -50,10 +55,18 @@ public class PopUpActivity extends AppCompatActivity {
                 EditText editBio = (EditText) findViewById(R.id.editTextBio);
                 String bio = editBio.getText().toString();
 
-                System.out.println(bio);
-                System.out.println(Login.et_username.getText().toString());
-                profileDbHelper.updateBio(Login.et_username.getText().toString(), bio);
-                //profileDbHelper.updateUsername(Login.et_username.getText().toString(), username);
+                EditText editPhone = (EditText) findViewById(R.id.editTextPhone);
+                String phone = editPhone.getText().toString();
+
+                User user = MainActivity.getUser(Login.et_username.getText().toString());
+                if (user.getPhone() != null)
+                    editPhone.setText(user.getPhone());
+                if (user.getBio() != null)
+                    editBio.setText(user.getBio());
+
+
+                MainActivity.updatePhone(Login.et_username.getText().toString(), phone);
+                MainActivity.updateBio(Login.et_username.getText().toString(), bio);
                 finish();
             }
         });
@@ -61,7 +74,7 @@ public class PopUpActivity extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout( (int)(width*.8), (int)(height*.7));
+        getWindow().setLayout( (int)(width*.8), (int)(height*.9));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;

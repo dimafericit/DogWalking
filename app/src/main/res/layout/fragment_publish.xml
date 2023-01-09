@@ -7,27 +7,52 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonPublish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="396dp"
-        android:text="Button"
+        android:layout_marginTop="28dp"
+        android:text="Publish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.684"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextAddress"
+        app:layout_constraintVertical_bias="0.09" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="331dp"
-        android:layout_height="103dp"
-        android:ems="10"
+        android:id="@+id/editTextTextDescription"
+        android:layout_width="332dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="28dp"
+        android:hint="Description"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextDogBreed"
+        android:layout_width="332dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="24dp"
+        android:inputType="textPersonName"
+        android:hint="DogBreed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextDescription" />
+
+    <EditText
+        android:id="@+id/editTextTextAddress"
+        android:layout_width="332dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="18dp"
+        android:inputType="textPersonName"
+        android:hint="Address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextDogBreed" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,69 +1,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".ui.profile.ProfileFragment">
-
-    <ImageButton
-        android:id="@+id/profilePicture"
-        android:layout_width="136dp"
-        android:layout_height="132dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/ic_baseline_person_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
 
     <Button
         android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="92dp"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="148dp"
+        android:text="Edit"
+        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/editTextTextPhone"
+        android:layout_width="219dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="48dp"
+        android:hint="Phone"
+        android:inputType="textPersonName"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextBio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/profilePicture" />
+
+    <ImageButton
+        android:id="@+id/profilePicture"
+        android:layout_width="136dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_person_24"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextBio"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/profileName13"
-        android:layout_width="219dp"
+        android:layout_width="180dp"
         android:layout_height="31dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="24dp"
         android:text="Name"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toEndOf="@+id/profilePicture"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPhone"
+        app:layout_constraintStart_toEndOf="@+id/profilePicture" />
 
     <TextView
-        android:id="@+id/ProfileBio13"
-        android:layout_width="221dp"
-        android:layout_height="90dp"
+        android:id="@+id/editTextTextBio"
+        android:layout_width="375dp"
+        android:layout_height="135dp"
+        android:layout_marginBottom="16dp"
         android:hint="Bio"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="23dp"
+        android:inputType="text|textMultiLine|textCapSentences"
+        app:layout_constraintBottom_toTopOf="@+id/editButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toEndOf="@+id/profilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/profileName13"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btn_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Edit Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageButton
+        android:id="@+id/inboxButton"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:src="@drawable/ic_baseline_inbox_24"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPhone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toEndOf="@+id/profileName13"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.901" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
